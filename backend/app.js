@@ -10,13 +10,21 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb+srv://albertu:2151989__nokia@cooking-assistant-y3ntt.mongodb.net/test?retryWrites=true&w=majority';
+/*var mongoDB = 'mongodb+srv://albertu:2151989__nokia@cooking-assistant-y3ntt.mongodb.net/test?retryWrites=true&w=majority';
 mongoose.Promise = global.Promise;
 mongoose.createConnection(mongoDB, { useNewUrlParser: true, useCreateIndex: true,  useUnifiedTopology: true});
 var db = mongoose.connection;
 db.once('once', () => {
     console.log(`MongoDB databse connection established successfully`);
 });
+*/
+
+var mongoDB =  'mongodb+srv://albertu:2151989__nokia@cooking-assistant-y3ntt.mongodb.net/test?retryWrites=true&w=majority';
+mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("MongoDb connected"))
+  .catch(err => console.log(err));
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

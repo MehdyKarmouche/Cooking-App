@@ -6,12 +6,12 @@ var Equipment = require('../models/Equipment');
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	var equ = new Equipment({
-		label : "TEST"
+		label : "TEST2"
 	});
 
 	equ.save();
 
-	console.log("tfou.zip")
+	console.log("tfou123.zip")
   res.render('index', { title: 'Express' });
 });
 
