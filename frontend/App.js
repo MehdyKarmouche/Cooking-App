@@ -1,34 +1,30 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
-//import {Home} from './App/views/Home.js'
-import { LinearGradient } from 'expo-linear-gradient';
+import { StyleSheet, Text, View, TextInput, ImageBackground } from 'react-native';
+import {Regform} from './App/components/regform'
+import {Loginform} from './App/components/login'
+import {List} from './App/components/List'
+//import {Router} from './App/components/router'
+import 'react-native-gesture-handler';
+//import { LinearGradient } from 'expo-linear-gradient';
 
 export default class App extends Component {
-  render(){
+  render() {
     return (
-      <LinearGradient
-        colors={['#4568dc','#b06ab3','#dd2476']}
-        style={{flex: 1}}
-      >
-        //<Text style={styles.text}>Hello World</Text>
-        <Text>
-        <TextInput
-        placeholder="Username"/>
-        </Text>
-
-
-      </LinearGradient>
+      <View style={styles.container}>
+        <ImageBackground blurRadius={3} source={require('./App/components/back2.jpg')} style={styles.back}>
+        <Regform />
+        </ImageBackground>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  text: {
-    fontSize: 56,
-    position: 'absolute',
-    left: '15%',
-    top: '40%',
-    color: 'white',
-    fontWeight: 'bold'
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  back:{
+    flex: 1
   }
 });
