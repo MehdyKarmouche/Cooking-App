@@ -4,15 +4,18 @@ var Schema = mongoose.Schema;
 
 
 var Recipe = new Schema({
-	title : String,
-	type: String,
+	title : {type:String,unique : true},
+	type: [String],
+	diets: [String],
+	cuisines: [String],
 	cooking_time : Number,
 	preparation_time : Number,
 	servings : Number,
 	instructions : [String],
 	image : String,
-	ingredients : [{type: Schema.type.ObjectId, ref : 'Ingredient'}],
-	caloric_breakdown : {type: Schema.type.ObjectId, ref : 'CaloricBreakdown'}
+	ingredients : [{label: String, image : String, original : String , amount : Number , unit : String}],
+	equipments: [{label : String}],
+	caloric_breakdown : {type: Schema.Types.ObjectId, ref : 'CaloricBreakdown'}
 });
 
 
