@@ -10,17 +10,15 @@ var searchRouter = require('./routes/search');
 
 var app = express();
 
-var mongoose = require('mongoose');
-/*var mongoDB = 'mongodb+srv://albertu:2151989__nokia@cooking-assistant-y3ntt.mongodb.net/test?retryWrites=true&w=majority';
-mongoose.Promise = global.Promise;
-mongoose.createConnection(mongoDB, { useNewUrlParser: true, useCreateIndex: true,  useUnifiedTopology: true});
-var db = mongoose.connection;
-db.once('once', () => {
-    console.log(`MongoDB databse connection established successfully`);
-});
-*/
+var cors = require('cors');
+app.use(cors());
 
-var mongoDB =  'mongodb+srv://albertu:2151989__nokia@cooking-assistant-y3ntt.mongodb.net/test?retryWrites=true&w=majority';
+app.set('trust proxy', true)
+
+var mongoose = require('mongoose');
+
+
+var mongoDB =  '';
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDb connected"))
   .catch(err => console.log(err));

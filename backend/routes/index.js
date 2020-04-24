@@ -11,7 +11,6 @@ router.get('/', function(req, res, next) {
 
 	equ.save();
 
-	console.log("tfou123.zip")
   res.render('index', { title: 'Express' });
 });
 

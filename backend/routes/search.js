@@ -9,7 +9,7 @@ router.get('/recipe',function(req,res,next){
     const title = 'Fruit Pizza';
     Recipe.find({title:title}).then(recipe =>{
         if(recipe){
-            res.json({recipe});
+            res.json(recipe);
         }
         else{
             res.send("recipe not found");
@@ -21,10 +21,12 @@ router.get('/recipe',function(req,res,next){
 //get all recipe by tag: diet or cuisine ...
 
 router.get('/cuisine', function(req,res,next){
+    var ip = req.ip;
+    console.log(ip)
     const cuisine = "Italian";
     Recipe.find({cuisines:cuisine}).then(recipes=>{
         if(recipes)
-            res.json({recipes})
+            res.json(recipes)
         else{
             res.send("makaynch")
         }
